@@ -14,9 +14,31 @@ Find me (soon *us* I hope!) in #contento channel on [Elixir Slack](https://elixi
 
 *This info will be updated soon!*
 
-1. Clone this repo to whatever location you prefer.
-2. Create database and run migrations with `mix ecto.setup`.
-3. Run the server with `mix phx.server`.
+1. Clone this repo wherever you'd like:
+
+```
+$ git clone https://github.com/contentocms/contento.git
+```
+
+2. Install assets dependencies:
+
+```
+$ cd contento/assets
+$ yarn install
+```
+
+3. Create database and run migrations:
+
+```
+$ cd ../ # leaving assets dir
+$ mix ecto.setup
+```
+
+4. Run the server:
+
+```
+$ mix phx.server
+```
 
 After that you can access the website in `http://localhost:4000` and login to admin in `http://localhost:4000/login`.
 
@@ -25,7 +47,7 @@ Default credentials are:
 - Email: **su@example.org**
 - Password: **12345678**
 
-**NOTE:** Check [ROADMAP.md]() for current features and what's expected to come next.
+**NOTE:** Check [ROADMAP.md](https://github.com/contentocms/contento/blob/master/ROADMAP.md) for current features and what's expected to come next.
 
 ## Contributing
 
@@ -33,4 +55,4 @@ Info for contributing to this project will be here soon, in the meanwhile just s
 
 ## License
 
-This project is licensed under the [MIT license]().
+This project is licensed under the [MIT license](https://github.com/contentocms/contento/blob/master/LICENSE.md).
