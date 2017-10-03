@@ -2,6 +2,8 @@
 
 > An open source CMS built with the power of Elixir, Phoenix and Postgresql.
 
+![Contento Admin Screenshot](https://raw.githubusercontent.com/contentocms/contento/master/screenshot.png)
+
 #### Disclaimer
 
 This project is currently a WIP and documentation, guides and more info is on it's way, stay tuned by staring this repo!
