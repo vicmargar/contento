@@ -4,7 +4,6 @@
 
 - [x] Authentication
 - [x] Basic admin layout and theme to get going (eventually should be refactored in future).
-- [x] Multiple themes.
 - [x] Create posts, pages and users.
 - [x] Manage account (current user's details and preferences).
 - [x] Manage the website settings.
@@ -21,6 +20,10 @@
   - [x] Single page page (shows a single page)
   - [ ] Author page (shows a user's information and lists authored posts)
   - [ ] Maintenance page
+- [ ] Themes Support
+  - [x] Allow multiple themes
+  - [ ] Manage themes in back-office
+- [ ] Install feature (initial setup)
 - [ ] Docker for production (should compile assets and source and run the server).
 
 ### 0.0.2
