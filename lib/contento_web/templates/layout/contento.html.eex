@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= page_title(@conn) %></title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/c/css/contento.css") %>">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="sidebar">
+        <a href="<%= admin_dashboard_path(@conn, :index) %>" class="brand">
+          <span class="fa fa-circle-o-notch"></span> Contento
+        </a>
+        <div class="user">
+          <div class="username">
+            <%= current_user(@conn).name %>
+          </div>
+          <div class="extension">
+            <div class="username">
+              <%= current_user(@conn).name %>
+            </div>
+            <div class="nav flex-column">
+              <a href="<%= admin_account_path(@conn, :index) %>" class="nav-item nav-link">
+                <%= gettext("Account") %>
+              </a>
+              <div class="separator"></div>
+              <a href="<%= session_path(@conn, :delete) %>" class="nav-item nav-link">
+                <%= gettext("Logout") %>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="nav flex-column">
+          <span class="nav-header"><%= gettext("Main") %></span>
+          <a href="<%= web_path(@conn, :index) %>" class="nav-item nav-link">
+            <span class="fa fa-globe"></span>
+            <%= gettext("View Website") %>
+          </a>
+          <a href="<%= admin_dashboard_path(@conn, :index) %>" class="nav-item nav-link <%= active_class(@conn, admin_dashboard_path(@conn, :index)) %>">
+            <span class="fa fa-dashboard"></span>
+            <%= gettext("Dashboard") %>
+          </a>
+
+          <span class="nav-header"><%= gettext("Content") %></span>
+          <a href="<%= admin_post_path(@conn, :index) %>" class="nav-item nav-link <%= active_class(@conn, admin_post_path(@conn, :index)) %>">
+            <span class="fa fa-file-text"></span>
+            <%= gettext("Posts") %>
+          </a>
+          <a href="<%= admin_page_path(@conn, :index) %>" class="nav-item nav-link <%= active_class(@conn, admin_page_path(@conn, :index)) %>">
+            <span class="fa fa-file-text"></span>
+            <%= gettext("Pages") %>
+          </a>
+
+          <span class="nav-header"><%= gettext("System") %></span>
+          <a href="<%= admin_user_path(@conn, :index) %>" class="nav-item nav-link <%= active_class(@conn, admin_user_path(@conn, :index)) %>">
+            <span class="fa fa-group"></span>
+            <%= gettext("Users") %>
+          </a>
+          <a href="<%= admin_settings_path(@conn, :show) %>" class="nav-item nav-link <%= active_class(@conn, admin_settings_path(@conn, :show)) %>">
+            <span class="fa fa-cog"></span>
+            <%= gettext("Settings") %>
+          </a>
+        </div>
+      </div>
+      <div class="main">
+        <%= render @view_module, @view_template, assigns %>
+      </div>
+    </div>
+
+    <script src="<%= static_path(@conn, "/c/js/contento.js") %>"></script>
+  </body>
+</html>

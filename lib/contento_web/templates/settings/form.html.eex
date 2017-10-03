@@ -1,0 +1,41 @@
+<div>
+  <h1 class="header">
+    <div><%= gettext("Website Details") %></div>
+  </h1>
+
+  <%= form_for @changeset, @action, fn f -> %>
+    <div class="form-group">
+      <%= label f, :website_title, gettext("Website Title") %>
+      <%= text_input f, :website_title, class: input_class(f, :website_title) %>
+      <%= input_errors f, :website_title %>
+    </div>
+
+    <div class="form-group">
+      <%= label f, :website_description, gettext("Website Description") %>
+      <%= text_input f, :website_description, class: input_class(f, :website_description) %>
+      <%= input_errors f, :website_description %>
+    </div>
+
+    <h1 class="header">
+      <div><%= gettext("Maintenance Mode") %></div>
+    </h1>
+
+    <div class="form-group">
+      <%= label f, :maintenance, gettext("Maintenance") %>
+      <%= select f, :maintenance, ["Active": true, "Inactive": false], class: input_class(f, :maintenance) %>
+      <%= input_errors f, :maintenance %>
+    </div>
+
+    <div class="form-group">
+      <%= label f, :maintenance_message, gettext("Maintenance Message") %>
+      <%= text_input f, :maintenance_message, class: input_class(f, :maintenance_message) %>
+      <%= input_errors f, :maintenance_message %>
+    </div>
+
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary">
+        <%= gettext("Save") %>
+      </button>
+    </div>
+  <% end %>
+</div>

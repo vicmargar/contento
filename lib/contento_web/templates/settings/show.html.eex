@@ -1,0 +1,19 @@
+<div class="breadcrumbs">
+  <a href="<%= admin_dashboard_path(@conn, :index) %>">
+    <%= gettext("Contento") %>
+  </a>
+  <span>Settings</span>
+</div>
+
+<div class="content">
+  <%= if info = get_flash(@conn, :info) do %>
+    <%= case info do %>
+      <% :updated -> %>
+        <div class="alert alert-success">
+          <%= gettext("Settings successfully updated") %>
+        </div>
+    <% end %>
+  <% end %>
+
+  <%= render "form.html", changeset: @changeset, action: admin_settings_path(@conn, :update) %>
+</div>

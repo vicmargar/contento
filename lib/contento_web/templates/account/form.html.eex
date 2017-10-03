@@ -1,0 +1,53 @@
+<div>
+  <h1 class="header">
+    <div><%= gettext("User Details") %></div>
+  </h1>
+
+  <%= form_for @changeset, @action, fn f -> %>
+    <div class="form-group">
+      <%= label f, :name, gettext("Name") %>
+      <%= text_input f, :name, class: input_class(f, :name) %>
+      <%= input_errors f, :name %>
+    </div>
+
+    <div class="form-group">
+      <%= label f, :email, gettext("Email") %>
+      <%= email_input f, :email, class: input_class(f, :email) %>
+      <%= input_errors f, :email %>
+    </div>
+
+    <div class="form-group">
+      <%= label f, :handle, gettext("Handle") %>
+      <%= text_input f, :handle, class: input_class(f, :handle) %>
+      <%= input_errors f, :handle %>
+    </div>
+
+    <h1 class="header">
+      <div><%= gettext("User Profile") %></div>
+    </h1>
+
+    <div class="form-group">
+      <%= label f, :website, gettext("Website") %>
+      <%= text_input f, :website, class: input_class(f, :website) %>
+      <%= input_errors f, :website %>
+    </div>
+
+    <div class="form-group">
+      <%= label f, :location, gettext("Location") %>
+      <%= text_input f, :location, class: input_class(f, :location) %>
+      <%= input_errors f, :location %>
+    </div>
+
+    <div class="form-group">
+      <%= label f, :bio, gettext("Bio") %>
+      <%= textarea f, :bio, class: input_class(f, :bio), rows: 5, data: [provide: "markdown", iconlibrary: "fa"] %>
+      <%= input_errors f, :bio %>
+    </div>
+
+    <div class="text-right">
+      <button type="submit" class="btn btn-primary">
+        <%= gettext("Save") %>
+      </button>
+    </div>
+  <% end %>
+</div>

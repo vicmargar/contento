@@ -1,0 +1,68 @@
+<div class="breadcrumbs">
+  <a href="<%= admin_dashboard_path(@conn, :index) %>">Contento</a>
+  <span>Account</span>
+</div>
+
+<div class="content">
+  <div class="row">
+    <div class="col-md-8">
+      <%= if info = get_flash(@conn, :info) do %>
+        <%= case info do %>
+          <% :updated -> %>
+            <div class="alert alert-success">
+              <%= gettext("Your account was successfully updated") %>
+            </div>
+          <% :updated_password -> %>
+            <div class="alert alert-success">
+              <%= gettext("Your password was successfully updated") %>
+            </div>
+          <% :setup_password -> %>
+            <div class="alert alert-info">
+              <%= gettext("Please, take a minute to setup your account's password") %>
+            </div>
+        <% end %>
+      <% end %>
+
+      <%= render "form.html", changeset: @changeset, action: admin_account_path(@conn, :update) %>
+
+      <h1 class="header">
+        <div><%= gettext("Change Password") %></div>
+      </h1>
+
+      <%= render "password_form.html", changeset: @changeset, action: admin_account_path(@conn, :update_password),
+                                       has_password: @user.password_hash %>
+    </div>
+    <div class="col-md-4">
+      <h1 class="header">
+        <div><%= gettext("Info") %></div>
+      </h1>
+
+      <ul class="list-group">
+        <li class="list-group-item">
+          <%= if last_login_at = @user.last_login_at do %>
+            <strong><%= gettext("Last login") %>:</strong>
+            <%= timeago(last_login_at) %>
+          <% else %>
+            <em>Never Logged In</em>
+          <% end %>
+        </li>
+        <li class="list-group-item">
+          <%= if joined_at = @user.joined_at do %>
+            <strong><%= gettext("Joined") %>:</strong>
+            <%= timeago(joined_at) %>
+          <% else %>
+            <em>Not Activated</em>
+          <% end %>
+        </li>
+        <li class="list-group-item">
+          <strong><%= gettext("Inserted") %>:</strong>
+          <%= timeago(@user.inserted_at) %>
+        </li>
+        <li class="list-group-item">
+          <strong><%= gettext("Updated") %>:</strong>
+          <%= timeago(@user.updated_at) %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

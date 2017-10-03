@@ -1,0 +1,47 @@
+<div class="login">
+  <div class="login-content">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><%= gettext("Sign in to Contento") %></h4>
+        <hr />
+
+        <%= if info = get_flash(@conn, :info) do %>
+          <%= case info do %>
+            <% :requires_activation -> %>
+              <div class="alert alert-info">
+                <%= gettext("Please, activate your account first by following the link sent to your email") %>
+              </div>
+          <% end %>
+        <% end %>
+
+        <%= if error = get_flash(@conn, :error) do %>
+          <%= case error do %>
+            <% :wrong_credentials -> %>
+              <div class="alert alert-danger">
+                <%= gettext("Please, verify your credentials and try again") %>
+              </div>
+            <% :no_session -> %>
+              <div class="alert alert-danger">
+                <%= gettext("Please, authenticate first.") %>
+              </div>
+          <% end %>
+        <% end %>
+
+        <%= form_for @conn, session_path(@conn, :create), [as: :user], fn _f -> %>
+          <div class="form-group">
+            <label><%= gettext("Email") %></label>
+            <input type="email" name="user[email]" class="form-control" autofocus />
+          </div>
+          <div class="form-group">
+            <label><%= gettext("Password") %></label>
+            <input type="password" name="user[password]" class="form-control" />
+          </div>
+          <div class="text-right">
+            <a href="#" class="btn btn-link"><%= gettext("Forgot my password") %></a>
+            <button type="submit" class="btn btn-primary"><%= gettext("Sign In") %></button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

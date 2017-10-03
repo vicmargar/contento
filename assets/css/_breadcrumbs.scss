@@ -1,0 +1,26 @@
+.breadcrumbs {
+  margin: 0px;
+  padding: .5rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  font-size: 0;
+
+  a {
+    font-size: .8rem;
+
+    &:after {
+      content: "/";
+      margin: 0 .5rem;
+      color: #999;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  span {
+    font-size: .8rem;
+  }
+}

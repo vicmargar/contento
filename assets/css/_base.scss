@@ -1,0 +1,26 @@
+/*
+ * Base
+ */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: theme-color("primary");  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #243B55, theme-color("primary"));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #243B55, theme-color("primary")); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Nunito', sans-serif;
+  margin: 50px;
+}
+
+.wrapper {
+  display: flex;
+  background: #fff;
+  max-width: 1600px;
+  min-height: 100%;
+  margin: 0 auto;
+  border-radius: $border-radius;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+}

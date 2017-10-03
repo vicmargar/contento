@@ -1,0 +1,109 @@
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  width: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: 0px 0px 30px rgba(69, 101, 173, 0.1);
+  background: #fff;
+  border-top-left-radius: $border-radius;
+
+  .brand {
+    display: block;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .user {
+    position: relative;
+    display: block;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+
+    .username {
+      text-transform: uppercase;
+      font-size: .8rem;
+      text-align: center;
+    }
+
+    &:hover {
+      .extension {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    .extension {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      background: theme-color("primary");
+      width: 100%;
+      top: -.5rem;
+      left: 0;
+      padding: 1rem;
+      text-align: left;
+      transition: all .3s ease-in-out;
+
+      .username {
+        color: #fff;
+        margin-bottom: 1rem;
+      }
+
+      .nav {
+        .nav-link {
+          color: #ecf0f1;
+          padding: .5rem;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+
+        .separator {
+          height: 1px;
+          width: 20%;
+          background: rgba(255, 255, 255, .2);
+          margin-left: .5rem;
+        }
+      }
+    }
+  }
+
+  .nav {
+    .nav-header {
+      padding: 0 1rem;
+      color: #666;
+      text-transform: uppercase;
+      font-size: .8rem;
+      letter-spacing: .1rem;
+      margin-top: 1rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .nav-link {
+      color: #777;
+
+      &.active,
+      &:hover {
+        color: theme-color("primary");
+      }
+
+      .fa {
+        @extend .mr-2;
+      }
+    }
+  }
+}

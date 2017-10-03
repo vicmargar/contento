@@ -1,0 +1,49 @@
+<div class="breadcrumbs">
+  <a href="<%= admin_dashboard_path(@conn, :index) %>">
+    <%= gettext("Contento") %>
+  </a>
+  <span><%= gettext("Users") %></span>
+</div>
+
+<div class="content">
+  <h1 class="header">
+    <div><%= gettext("Users") %></div>
+    <div>
+      <a href="<%= admin_user_path(@conn, :new) %>" class="btn btn-sm btn-primary">
+        <%= gettext("New User") %>
+      </a>
+    </div>
+  </h1>
+
+  <%= if info = get_flash(@conn, :info) do %>
+    <%= case info do %>
+      <% :created -> %>
+        <div class="alert alert-success">
+          <%= gettext("User successfully created") %>
+        </div>
+      <% :deleted -> %>
+        <div class="alert alert-success">
+          <%= gettext("User successfully deleted") %>
+        </div>
+    <% end %>
+  <% end %>
+
+  <%= if length(@users) > 0 do %>
+    <div class="list-group">
+      <%= for user <- @users do %>
+        <a href="<%= admin_user_path(@conn, :show, user) %>" class="list-group-item">
+          <strong><%= user.name %></strong>
+          <br />
+          <span><%= user.email %></span>
+        </a>
+      <% end %>
+    </div>
+
+    <%= render ContentoWeb.LayoutView, "pagination.html", conn: @conn, total_pages: @total_pages,
+                                                          page_number: @page_number %>
+  <% else %>
+    <div class="alert alert-info">
+      <%= gettext("No users found...") %>
+    </div>
+  <% end %>
+</div>

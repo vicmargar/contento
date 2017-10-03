@@ -1,0 +1,67 @@
+<div class="breadcrumbs">
+  <a href="<%= admin_dashboard_path(@conn, :index) %>">Contento</a>
+  <span>Dashboard</span>
+</div>
+
+<div class="content">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="header">
+        <div><%= gettext("Welcome to Contento") %>!</div>
+      </h1>
+
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="card text-white bg-primary">
+            <div class="card-body text-center">
+              <h4 class="card-title display-4">
+                <%= @counters[:posts] %>
+              </h4>
+              <p class="card-text text-uppercase">
+                <%= gettext("Posts") %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card text-white bg-primary">
+            <div class="card-body text-center">
+              <h4 class="card-title display-4">
+                <%= @counters[:pages] %>
+              </h4>
+              <p class="card-text text-uppercase">
+                <%= gettext("Pages") %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card text-white bg-primary">
+            <div class="card-body text-center">
+              <h4 class="card-title display-4">
+                <%= @counters[:users] %>
+              </h4>
+              <p class="card-text text-uppercase">
+                <%= gettext("Users") %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h1 class="header">
+        <div><%= gettext("Learn more") %>...</div>
+      </h1>
+
+      <div class="list-group">
+        <a href="#" class="list-group-item">
+          <%= gettext("Contento Guides") %>
+        </a>
+        <a href="#" class="list-group-item">
+          <%= gettext("Contento Documentation") %>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

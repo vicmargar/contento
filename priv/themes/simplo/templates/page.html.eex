@@ -1,0 +1,11 @@
+<div class="simplo-page">
+  <h3 class="simplo-page-title">
+    <%= @page.title %>
+  </h3>
+  <div class="simplo-page-content">
+    <%= md_as_html(@page.content) %>
+  </div>
+  <div class="simplo-page-meta">
+    <p><small><em>Published at <%= @page.published_at %>.</em></small></p>
+  </div>
+</div>

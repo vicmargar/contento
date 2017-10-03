@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+  font-weight: bold;
+  letter-spacing: 1px;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+
+  &:after {
+    content: "";
+    background-color: theme-color("primary");
+    width: 22px;
+    height: 6px;
+    border-radius: 2px;
+    display: block;
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+}

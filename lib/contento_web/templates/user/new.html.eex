@@ -1,0 +1,13 @@
+<div class="breadcrumbs">
+  <a href="<%= admin_dashboard_path(@conn, :index) %>">
+    <%= gettext("Contento") %>
+  </a>
+  <a href="<%= admin_user_path(@conn, :index) %>">
+    <%= gettext("Users") %>
+  </a>
+  <span><%= gettext("New") %></span>
+</div>
+
+<div class="content">
+  <%= render "form.html", changeset: @changeset, action: admin_user_path(@conn, :create) %>
+</div>
