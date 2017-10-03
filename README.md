@@ -22,21 +22,28 @@ Find me (soon *us* I hope!) in #contento channel on [Elixir Slack](https://elixi
 $ git clone https://github.com/contentocms/contento.git
 ```
 
-2. Install assets dependencies:
+2. Install dependencies:
 
 ```
-$ cd contento/assets
+$ cd ./contento/
+$ mix deps.get
+```
+
+3. Install assets dependencies:
+
+```
+$ cd ./assets/
 $ yarn install
 ```
 
-3. Create database and run migrations:
+4. Create database and run migrations:
 
 ```
 $ cd ../ # leaving assets dir
 $ mix ecto.setup
 ```
 
-4. Run the server:
+5. Run the server:
 
 ```
 $ mix phx.server
