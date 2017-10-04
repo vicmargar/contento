@@ -70,9 +70,9 @@ defmodule ContentoWeb.Router do
     pipe_through [:browser, :theme]
 
     # Index
-    get "/", ThemeController, :index, as: :web
+    get "/", WebsiteController, :index
 
     # Page or Post
-    get "/:slug", ThemeController, :page_or_post, as: :web
+    get "/:slug", WebsiteController, :page_or_post
   end
 end

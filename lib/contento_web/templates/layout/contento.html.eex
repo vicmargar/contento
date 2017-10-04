@@ -37,7 +37,7 @@
         </div>
         <div class="nav flex-column">
           <span class="nav-header"><%= gettext("Main") %></span>
-          <a href="<%= web_path(@conn, :index) %>" class="nav-item nav-link">
+          <a href="<%= website_path(@conn, :index) %>" class="nav-item nav-link">
             <span class="fa fa-globe"></span>
             <%= gettext("View Website") %>
           </a>

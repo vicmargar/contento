@@ -34,7 +34,7 @@
         <a href="<%= admin_page_path(@conn, :show, page) %>" class="list-group-item">
           <strong><%= page.title %></strong> by <em><%= page.author.name %></em>
           <br />
-          <span><%= web_url(@conn, :page_or_post, page.slug) %></span>
+          <span><%= website_url(@conn, :page_or_post, page.slug) %></span>
         </a>
       <% end %>
     </div>

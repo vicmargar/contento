@@ -1,4 +1,4 @@
-defmodule ContentoWeb.ThemeController do
+defmodule ContentoWeb.WebsiteController do
   use ContentoWeb, :controller
 
   alias Contento.Content
