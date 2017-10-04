@@ -56,6 +56,12 @@
             <%= gettext("Pages") %>
           </a>
 
+          <span class="nav-header"><%= gettext("Appearance") %></span>
+          <a href="<%= admin_theme_path(@conn, :index) %>" class="nav-item nav-link <%= active_class(@conn, admin_theme_path(@conn, :index)) %>">
+            <span class="fa fa-paint-brush"></span>
+            <%= gettext("Themes") %>
+          </a>
+
           <span class="nav-header"><%= gettext("System") %></span>
           <a href="<%= admin_user_path(@conn, :index) %>" class="nav-item nav-link <%= active_class(@conn, admin_user_path(@conn, :index)) %>">
             <span class="fa fa-group"></span>
