@@ -16,7 +16,7 @@ defmodule ContentoWeb.Router do
   end
 
   pipeline :theme do
-    plug :put_layout, {ContentoWeb.ThemeView, "layout.html"}
+    plug :put_layout, {ContentoWeb.WebsiteView, "layout.html"}
   end
 
   pipeline :session do
