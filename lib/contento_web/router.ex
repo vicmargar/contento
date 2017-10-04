@@ -57,6 +57,7 @@ defmodule ContentoWeb.Router do
     # Settings
     get "/settings", SettingsController, :show
     put "/settings", SettingsController, :update
+    put "/settings/theme", SettingsController, :update_theme
   end
 
   scope "/", ContentoWeb do

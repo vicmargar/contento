@@ -21,13 +21,16 @@
       <% end %>
 
       <%= if @settings.theme_id == @theme.id do %>
-        <a href="#" class="btn btn-block btn-primary default">
+        <a href="#" class="btn btn-block btn-primary disabled">
           Current Theme
         </a>
       <% else %>
-        <a href="#" class="btn btn-block btn-primary">
-          Apply Theme
-        </a>
+        <%= form_for @conn, admin_settings_path(@conn, :update_theme), [as: :setting, method: "put"], fn f -> %>
+          <%= hidden_input(f, :theme_id, value: @theme.id) %>
+          <button type="submit" class="btn btn-block btn-primary">
+            Apply Theme
+          </button>
+        <% end %>
       <% end %>
     </div>
     <div class="col-md-4">
