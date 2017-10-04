@@ -2,7 +2,7 @@
   <a href="<%= admin_dashboard_path(@conn, :index) %>">
     <%= gettext("Contento") %>
   </a>
-  <a href="<%= admin_post_path(@conn, :index) %>">
+  <a href="<%= admin_theme_path(@conn, :index) %>">
     <%= gettext("Themes") %>
   </a>
   <span><%= @theme.alias %></span>
