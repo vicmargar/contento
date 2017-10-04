@@ -51,6 +51,9 @@ defmodule ContentoWeb.Router do
     # Pages
     resources "/pages", PageController, except: [:edit]
 
+    # Themes
+    resources "/themes", ThemeController, except: [:edit, :update, :new, :create]
+
     # Settings
     get "/settings", SettingsController, :show
     put "/settings", SettingsController, :update
