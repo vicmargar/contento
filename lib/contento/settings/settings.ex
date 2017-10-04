@@ -10,7 +10,9 @@ defmodule Contento.Settings do
 
   def get_settings() do
     if settings = Repo.all(Setting, limit: 1) do
-      Enum.at(settings, 0)
+      settings
+      |> Enum.at(0)
+      |> Repo.preload(:theme)
     end
   end
 

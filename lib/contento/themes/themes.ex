@@ -3,6 +3,8 @@ defmodule Contento.Themes do
   The Themes context.
   """
 
+  require Logger
+
   import Ecto.Query, warn: false
 
   alias Contento.Repo
@@ -39,4 +41,37 @@ defmodule Contento.Themes do
   def count_themes do
     Repo.aggregate(from(p in Theme), :count, :id)
   end
+
+  # def load_themes_into_database do
+  #   Logger.info("Loading themes into database...")
+  #
+  #   themes_available()
+  #   |> Enum.each(fn theme_config ->
+  #     if theme = get_theme(alias: theme_config["alias"]) do
+  #       update_theme(theme, theme_config)
+  #     else
+  #       create_theme(theme_config)
+  #     end
+  #   end)
+  # end
+
+  # def themes_available do
+  #   "priv/themes/**/package.json"
+  #   |> Path.wildcard()
+  #   |> Enum.reduce([], fn(theme_file, acc) ->
+  #     with {:ok, file_content} <- File.read(theme_file) do
+  #       theme_config = file_content
+  #       |> Poison.decode!()
+  #       |> Map.merge(%{"alias" => theme_alias_from_path(theme_file)})
+  #
+  #       acc ++ [theme_config]
+  #     end
+  #   end)
+  # end
+
+  # def theme_alias_from_path(path) do
+  #   path
+  #   |> String.replace("priv/themes/", "")
+  #   |> String.replace("/package.json", "")
+  # end
 end

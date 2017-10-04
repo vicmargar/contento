@@ -5,17 +5,27 @@ defmodule ContentoWeb.WebsiteController do
 
   def index(conn, _params) do
     posts = Content.list_posts(published: true)
-    render(conn, "index.html", posts: posts)
+    do_render(conn, "index.html", posts: posts)
   end
 
   def page_or_post(conn, %{"slug" => slug} = _params) do
     cond do
       page = Content.get_page(slug: slug) ->
-        render(conn, "page.html", page: page)
+        do_render(conn, "page.html", page: page)
       post = Content.get_post(slug: slug) ->
-        render(conn, "post.html", post: post)
+        do_render(conn, "post.html", post: post)
       true ->
-        render(conn, "not_found.html")
+        do_render(conn, "not_found.html")
     end
+  end
+
+  defp do_render(conn, template, assigns \\ []) do
+    theme_alias = conn.assigns[:settings].theme.alias
+    layout_template = theme_alias <> "/templates/layout.html"
+    action_template = theme_alias <> "/templates/" <> template
+
+    conn
+    |> put_layout({ContentoWeb.WebsiteView, layout_template})
+    |> render(action_template, assigns)
   end
 end

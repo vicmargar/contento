@@ -16,7 +16,7 @@ defmodule ContentoWeb.Router do
   end
 
   pipeline :theme do
-    plug :put_layout, {ContentoWeb.WebsiteView, "layout.html"}
+    plug ContentoWeb.Plug.ThemeAssets
   end
 
   pipeline :session do
@@ -77,5 +77,9 @@ defmodule ContentoWeb.Router do
 
     # Page or Post
     get "/:slug", WebsiteController, :page_or_post
+
+    # FIXME: this should be handled correctly and is currently
+    # a quick and nasty workaround.
+    get "/*a", WebsiteController, :page_or_post
   end
 end

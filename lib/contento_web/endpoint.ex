@@ -8,11 +8,6 @@ defmodule ContentoWeb.Endpoint do
     at: "/c", from: :contento, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
-  # Serves theme static files on "/"
-  plug Plug.Static,
-    at: "/", from: ContentoWeb.Theme.assets_dir(), gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
-
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do

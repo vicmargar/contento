@@ -7,8 +7,7 @@ use Mix.Config
 
 # General application configuration
 config :contento,
-  ecto_repos: [Contento.Repo],
-  theme: :simplo
+  ecto_repos: [Contento.Repo]
 
 # Configures the endpoint
 config :contento, ContentoWeb.Endpoint,

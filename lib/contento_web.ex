@@ -49,8 +49,8 @@ defmodule ContentoWeb do
 
   def theme_view do
     quote do
-      use Phoenix.View, root: ContentoWeb.Theme.templates_dir(),
-                        path: "", pattern: "**/*", namespace: ContentoWeb
+      use Phoenix.View, root: "priv/themes", path: "",
+                        pattern: "**/templates/**/*", namespace: ContentoWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
