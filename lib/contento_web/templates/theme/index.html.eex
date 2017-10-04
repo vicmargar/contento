@@ -1,0 +1,47 @@
+<div class="breadcrumbs">
+  <a href="<%= admin_dashboard_path(@conn, :index) %>">
+    <%= gettext("Contento") %>
+  </a>
+  <span><%= gettext("Themes") %></span>
+</div>
+
+<div class="content">
+  <h1 class="header">
+    <div><%= gettext("Themes") %></div>
+    <div>
+      <a href="#" class="btn btn-sm btn-primary">
+        <%= gettext("Install Theme") %>
+      </a>
+    </div>
+  </h1>
+
+  <%= if info = get_flash(@conn, :info) do %>
+    <%= case info do %>
+      <% :created -> %>
+        <div class="alert alert-success">
+          <%= gettext("Theme successfully created") %>
+        </div>
+      <% :deleted -> %>
+        <div class="alert alert-success">
+          <%= gettext("Theme successfully deleted") %>
+        </div>
+    <% end %>
+  <% end %>
+
+  <%= if length(@themes) > 0 do %>
+    <div class="list-group">
+      <%= for theme <- @themes do %>
+        <a href="<%= admin_theme_path(@conn, :show, theme) %>" class="list-group-item">
+          <strong><%= theme.alias %></strong></em>
+        </a>
+      <% end %>
+    </div>
+
+    <%= render ContentoWeb.LayoutView, "pagination.html", conn: @conn, total_pages: @total_pages,
+                                                          page_number: @page_number %>
+  <% else %>
+    <div class="alert alert-info">
+      <%= gettext("No themes found...") %>
+    </div>
+  <% end %>
+</div>
