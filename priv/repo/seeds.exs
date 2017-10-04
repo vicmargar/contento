@@ -6,7 +6,9 @@ alias Contento.Themes
 now = fn -> DateTime.utc_now() end
 
 Themes.create_theme(%{
-  "alias" => "simplo"
+  "alias" => "simplo",
+  "name" => "Simplo",
+  "description" => "some description"
 })
 
 Settings.create_settings(%{

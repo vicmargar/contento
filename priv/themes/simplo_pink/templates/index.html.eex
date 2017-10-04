@@ -1,0 +1,11 @@
+<div>
+  <ul>
+    <%= for post <- @posts do %>
+      <li>
+        <a href="<%= website_path(@conn, :page_or_post, post.slug) %>">
+          <%= post.title %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</div>

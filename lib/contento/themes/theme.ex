@@ -5,11 +5,13 @@ defmodule Contento.Themes.Theme do
 
   alias Contento.Themes.Theme
 
-  @required_fields ~w(alias)a
+  @required_fields ~w(alias name description)a
   @optional_fields ~w()a
 
   schema "themes" do
     field :alias, :string
+    field :name, :string
+    field :description, :string
 
     has_one :setting, Contento.Settings.Setting
 

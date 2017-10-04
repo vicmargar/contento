@@ -5,7 +5,7 @@
   <a href="<%= admin_theme_path(@conn, :index) %>">
     <%= gettext("Themes") %>
   </a>
-  <span><%= @theme.alias %></span>
+  <span><%= @theme.name %></span>
 </div>
 
 <div class="content">
@@ -19,6 +19,10 @@
             </div>
         <% end %>
       <% end %>
+
+      <p class="lead">
+        <%= @theme.description %>
+      </p>
 
       <%= if @settings.theme_id == @theme.id do %>
         <a href="#" class="btn btn-block btn-primary disabled">
