@@ -29,7 +29,7 @@ defmodule ContentoWeb.SettingsController do
       with {:ok, %Setting{} = _settings} <- Settings.update_settings(settings, settings_params) do
         conn
         |> put_flash(:info, :applied)
-        |> redirect(to: admin_theme_path(conn, :show, settings.theme))
+        |> redirect(to: admin_theme_path(conn, :show, settings_params["theme_id"]))
       end
     end
   end
