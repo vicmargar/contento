@@ -32,7 +32,7 @@
     <div class="list-group">
       <%= for theme <- @themes do %>
         <a href="<%= admin_theme_path(@conn, :show, theme) %>" class="list-group-item">
-          <strong><%= theme.alias %></strong></em>
+          <strong><%= theme.alias %></strong> <%= if theme.id == @settings.theme.id, do: "(current)" %></em>
         </a>
       <% end %>
     </div>
