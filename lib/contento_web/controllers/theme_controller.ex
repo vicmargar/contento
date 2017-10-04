@@ -2,7 +2,6 @@ defmodule ContentoWeb.ThemeController do
   use ContentoWeb, :controller
 
   alias Contento.Themes
-  alias Contento.Themes.Theme
 
   def index(conn, params) do
     data = Themes.list_themes(params)
@@ -20,7 +19,7 @@ defmodule ContentoWeb.ThemeController do
 
   def delete(conn, %{"id" => id}) do
     if theme = Themes.get_theme(id) do
-      with {:ok, _theme} = Theme.delete_theme(theme) do
+      with {:ok, _theme} = Themes.delete_theme(theme) do
         conn
         |> put_flash(:info, :deleted)
         |> redirect(to: admin_theme_path(conn, :index))
