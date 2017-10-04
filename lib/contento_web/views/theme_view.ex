@@ -1,8 +1,6 @@
 defmodule ContentoWeb.ThemeView do
-  use ContentoWeb, :theme_view
+  use ContentoWeb, :view
 
-  def page_title(:index, %{settings: %{website_description: desc}}), do: desc
-  def page_title(:page_or_post, %{page: page}), do: page.title
-  def page_title(:page_or_post, %{post: post}), do: post.title
-  def page_title(:page_or_post, _assigns), do: gettext("Not Found")
+  def page_title(:index, _), do: gettext("Themes")
+  def page_title(:show, %{theme: theme}), do: theme.alias
 end

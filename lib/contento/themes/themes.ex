@@ -15,7 +15,6 @@ defmodule Contento.Themes do
     Theme
     |> where(^conds)
     |> order_by(desc: :inserted_at)
-    |> preload(:author)
     |> Repo.paginate(pagination_params)
   end
 
