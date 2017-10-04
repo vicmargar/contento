@@ -1,12 +1,19 @@
 alias Contento.Settings
 alias Contento.Accounts
 alias Contento.Content
+alias Contento.Themes
 
 now = fn -> DateTime.utc_now() end
 
+Themes.create_theme(%{
+  "alias" => "simplo"
+})
+
 Settings.create_settings(%{
   "website_title" => "Your Contento Website",
-  "website_description" => "A lovely website made with passion and Contento!"
+  "website_description" => "A lovely website made with passion and Contento!",
+
+  "theme_id" => 1
 })
 
 Accounts.create_user(%{
